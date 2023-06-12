@@ -1,0 +1,2 @@
+class Cab < ApplicationRecord
+end
