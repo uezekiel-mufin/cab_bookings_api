@@ -33,3 +33,6 @@
 /config/master.key
 
 /node_modules
+
+./env
+/config/master.key
