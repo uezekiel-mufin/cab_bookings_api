@@ -35,4 +35,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_12_203115) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "cabs", force: :cascade do |t|
+    t.string "manufacturer"
+    t.text "description"
+    t.string "image_url"
+    t.string "transmission"
+    t.string "model"
+    t.float "rental_price"
+    t.integer "seating_capacity"
+    t.string "body_type"
+    t.integer "discount"
+    t.string "engine_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+
 end

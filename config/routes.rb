@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   get '/member-data', to: 'members#show'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   namespace :api do
@@ -13,5 +13,7 @@ Rails.application.routes.draw do
     end
   end
   # Defines the root path route ("/")
+  # root "articles#index"
+end
   root "home#index"
 end
