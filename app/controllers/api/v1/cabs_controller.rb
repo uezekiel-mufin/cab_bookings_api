@@ -24,9 +24,9 @@ class Api::V1::CabsController < ApplicationController
   def destroy
     @cab = Cab.find(params[:id])
     @cab.destroy
-    render json: {message: 'Cab successfully deleted' }
+    render json: { message: 'Cab successfully deleted' }
   rescue ActiveRecord::RecordNotFound
-    render json: {error: 'Cab not found' }, status: :not_found
+    render json: { error: 'Cab not found' }, status: :not_found
   end
 
   private
