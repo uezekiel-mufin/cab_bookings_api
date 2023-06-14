@@ -6,7 +6,6 @@ class Api::V1::CabsController < ApplicationController
 
   def create
     @car = Cab.new(car_params.merge(user_id: current_user_id))
-
     if @cab.save
       render json: @cab, status: :created
     else
