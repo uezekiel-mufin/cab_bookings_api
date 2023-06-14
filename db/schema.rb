@@ -10,24 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_12_203115) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_13_205127) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "cabs", force: :cascade do |t|
-    t.string "manufacturer"
-    t.text "description"
-    t.string "image_url"
-    t.string "transmission"
-    t.string "model"
-    t.float "rental_price"
-    t.integer "seating_capacity"
-    t.string "body_type"
-    t.integer "discount"
-    t.string "engine_type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "cabs", force: :cascade do |t|
     t.string "manufacturer"
@@ -56,7 +41,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_12_203115) do
 
   create_table "reservations", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.string "user_name"
+    t.string "city", null: false
     t.bigint "cab_id", null: false
     t.datetime "reserve_date"
     t.datetime "created_at", null: false
@@ -78,18 +63,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_12_203115) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "cabs", force: :cascade do |t|
-    t.string "manufacturer"
-    t.text "description"
-    t.string "image_url"
-    t.string "transmission"
-    t.string "model"
-    t.float "rental_price"
-    t.integer "seating_capacity"
-    t.string "body_type"
-    t.integer "discount"
-    t.string "engine_type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-
+  add_foreign_key "cabs", "users"
+  add_foreign_key "reservations", "cabs"
+  add_foreign_key "reservations", "users"
 end
