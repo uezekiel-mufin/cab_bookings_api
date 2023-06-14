@@ -5,11 +5,13 @@ class Api::V1::CabsController < ApplicationController
   end
 
   def create
-    @car = Cab.new(car_params.merge(user_id: current_user_id))
+    @user = User.find(params[:cab][:user_id])
+    @cab = Cab.new(cab_params)
+    @cab.user = @user
     if @cab.save
       render json: @cab, status: :created
     else
-      render json: @cab, status: :unprocessable_entity
+      render json: @cab.errors, status: :unprocessable_entity
     end
   end
 
@@ -31,7 +33,9 @@ class Api::V1::CabsController < ApplicationController
   private
 
   def cab_params
-    params.require(:cab).permit(:manufacturer, :description, :image_url, :transmission, :model, :rental_price,
-                                :seating_capacity, :body_type, :discount, :engine_type)
+    params.require(:cab).permit(
+      :model, :manufacturer, :transmission, :rental_price, :discount, :engine_type,
+      :seating_capacity, :body_type, :description, :image_url, :user_id
+    )
   end
 end
