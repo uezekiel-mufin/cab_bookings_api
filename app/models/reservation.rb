@@ -7,7 +7,7 @@ class Reservation < ApplicationRecord
   validates :reserve_date, presence: true
   validates :user, presence: true
   validates :cab, presence: true
-  validates :user_name, presence: true
+  validates :city, presence: true
 
   private
 
