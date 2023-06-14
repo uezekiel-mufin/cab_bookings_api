@@ -11,8 +11,9 @@ class Api::V1::ReservationsController < ApplicationController
   end
 
   def create
+    @user = User.find(params[:reservation][:user_id])
     @reservation = Reservation.new(reservation_params)
-
+    @reservation.user = @user
     if @reservation.save
       render json: @reservation, status: :created
     else
@@ -40,6 +41,6 @@ class Api::V1::ReservationsController < ApplicationController
   end
 
   def reservation_params
-    params.require(:reservation).permit(:reserve_date, :user_id, :cab_id, :user_name)
+    params.require(:reservation).permit(:reserve_date, :user_id, :cab_id, :date)
   end
 end
