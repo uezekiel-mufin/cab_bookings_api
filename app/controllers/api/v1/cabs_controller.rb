@@ -1,22 +1,41 @@
 class Api::V1::CabsController < ApplicationController
   def index
-    render json: Cab.all
+    @cabs = Cab.all
+    render json: @cabs
   end
 
   def create
-    @car = Cab.new(car_params.merge(user_id: current_user_id))
-
+    @user = User.find(params[:cab][:user_id])
+    @cab = Cab.new(cab_params)
+    @cab.user = @user
     if @cab.save
       render json: @cab, status: :created
     else
-      render json: @cab, status: :unprocessable_entity
+      render json: @cab.errors, status: :unprocessable_entity
     end
+  end
+
+  def show
+    @cab = Cab.find(params[:id])
+    render json: @cab
+  rescue ActiveRecord::RecordNotFound
+    render json: { error: 'Cab not found' }, status: :not_found
+  end
+
+  def destroy
+    @cab = Cab.find(params[:id])
+    @cab.destroy
+    render json: { message: 'Cab successfully deleted' }
+  rescue ActiveRecord::RecordNotFound
+    render json: { error: 'Cab not found' }, status: :not_found
   end
 
   private
 
   def cab_params
-    params.require(:cab).permit(:manufacturer, :description, :image_url, :transmission, :model, :rental_price,
-                                :seating_capacity, :body_type, :discount, :engine_type)
+    params.require(:cab).permit(
+      :model, :manufacturer, :transmission, :rental_price, :discount, :engine_type,
+      :seating_capacity, :body_type, :description, :image_url, :user_id
+    )
   end
 end

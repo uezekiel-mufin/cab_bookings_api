@@ -9,11 +9,11 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'api/v1/users/registrations'
   }
-      resources :cabs, only: [:index, :show, :update, :destroy]
+  resources :cabs, only: [:index, :create, :show, :destroy]
     end
   end
   # Defines the root path route ("/")
   # root "articles#index"
-end
+
   root "home#index"
 end
