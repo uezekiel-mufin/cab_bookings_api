@@ -15,6 +15,6 @@ class Cab < ApplicationRecord
   validates :seating_capacity, presence: true,
                                numericality: { only_integer: true, message: 'Seat capacity must have integer' }
 
-  has_many :reservation, dependent: :destroy
+  has_many :reservations, dependent: :destroy
   belongs_to :user
 end
