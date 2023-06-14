@@ -5,7 +5,7 @@ class Api::V1::CabsController < ApplicationController
   end
 
   def create
-    @user = User.first
+    @user = User.find(params[:cab][:user_id])
     @cab = Cab.new(cab_params)
     @cab.user = @user
     if @cab.save
@@ -35,8 +35,7 @@ class Api::V1::CabsController < ApplicationController
   def cab_params
     params.require(:cab).permit(
       :model, :manufacturer, :transmission, :rental_price, :discount, :engine_type,
-      :seating_capacity, :body_type, :description, :image_url
+      :seating_capacity, :body_type, :description, :image_url, :user_id
     )
   end
-
 end
