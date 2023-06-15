@@ -115,4 +115,10 @@
 # ]
 # )
 
-Reservation.create(reserve_date:'',user_id: 1, car_id: 1, city: 'New York')
+# Reservation.create(reserve_date:'2023-07-07',user_id: 1, cab_id: 4, city: 'New York')
+# Reservation.create(reserve_date:'2023-08-08',user_id: 1, cab_id: 2, city: 'London')
+# Reservation.create(reserve_date:'2023-09-09',user_id: 1, cab_id: 5, city: 'Barcelona')
+# Reservation.create(reserve_date:'2023-10-10',user_id: 1, cab_id: 2, city: 'Vietnam')
+# Reservation.create(reserve_date:'2023-11-11',user_id: 1, cab_id: 1, city: 'Asaba')
+# Reservation.create(reserve_date:'2023-12-12',user_id: 1, cab_id: 7, city: 'Vancover')
+# Reservation.create(reserve_date:'2024-01-01',user_id: 1, cab_id: 6, city: 'Benin City')

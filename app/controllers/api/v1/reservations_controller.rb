@@ -1,8 +1,9 @@
 class Api::V1::ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[show update destroy]
+  before_action :index_params, only: %i[index]
 
   def index
-    @reservations = current_user.reservations.all
+    @reservations = Reservation.where(user_id: params[:user])
     render json: @reservations
   end
 
@@ -43,4 +44,9 @@ class Api::V1::ReservationsController < ApplicationController
   def reservation_params
     params.require(:reservation).permit(:reserve_date, :user_id, :cab_id, :city)
   end
+
+  def index_params
+    params.permit(:user)
+  end
+
 end
