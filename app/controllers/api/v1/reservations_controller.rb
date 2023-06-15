@@ -7,24 +7,12 @@ class Api::V1::ReservationsController < ApplicationController
     render json: @reservations
   end
 
-  def show
-    render json: @reservation
-  end
-
   def create
     @user = User.find(params[:reservation][:user_id])
     @reservation = Reservation.new(reservation_params)
     @reservation.user = @user
     if @reservation.save
       render json: @reservation, status: :created
-    else
-      render json: @reservation.errors, status: :unprocessable_entity
-    end
-  end
-
-  def update
-    if @reservation.update(reservation_params)
-      render json: @reservation
     else
       render json: @reservation.errors, status: :unprocessable_entity
     end
@@ -48,5 +36,4 @@ class Api::V1::ReservationsController < ApplicationController
   def index_params
     params.permit(:user)
   end
-
 end
