@@ -3,8 +3,8 @@ class Api::V1::ReservationsController < ApplicationController
   before_action :index_params, only: %i[index]
 
   def index
-    @reservations = Reservation.where(user_id: params[:user])
-    render json: @reservations
+    @reservations = Reservation.includes(:cab).where(user_id: params[:user])
+    render json: @reservations, each_serializer: ReservationSerializer
   end
 
   def create

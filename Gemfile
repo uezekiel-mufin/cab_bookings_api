@@ -8,6 +8,8 @@ gem 'rails', '~> 7.0.5'
 
 gem 'devise'
 
+gem 'active_model_serializers'
+
 gem 'devise-jwt'
 
 # Use sqlite3 as the database for Active Record
