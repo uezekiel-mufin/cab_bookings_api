@@ -1,5 +1,5 @@
 class Api::V1::ReservationsController < ApplicationController
-  before_action :set_reservation, only: %i[show update destroy]
+  before_action :set_reservation, only: %i[destroy]
   before_action :index_params, only: %i[index]
 
   def index
@@ -19,9 +19,13 @@ class Api::V1::ReservationsController < ApplicationController
   end
 
   def destroy
-    @reservation.destroy
-    head :no_content
+    if @reservation.destroy
+      render json: { message: 'Reservation successfully destroyed' }, status: :ok
+    else
+      render json: { error: 'Failed to destroy reservation' }, status: :unprocessable_entity
+    end
   end
+
 
   private
 

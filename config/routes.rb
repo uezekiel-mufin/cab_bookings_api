@@ -9,7 +9,7 @@ Rails.application.routes.draw do
                    registrations: 'api/v1/users/registrations'
                  }
       resources :cabs, only: [:index, :create, :show, :destroy]
-      resources :reservations, only: [:index, :create]
+      resources :reservations, only: [:index, :create, :destroy]
 
     end
   end
