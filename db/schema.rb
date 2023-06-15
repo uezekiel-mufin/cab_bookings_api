@@ -43,7 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_205127) do
     t.bigint "user_id", null: false
     t.string "city", null: false
     t.bigint "cab_id", null: false
-    t.datetime "reserve_date"
+    t.string "reserve_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cab_id"], name: "index_reservations_on_cab_id"
