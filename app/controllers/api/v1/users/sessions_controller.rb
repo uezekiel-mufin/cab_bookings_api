@@ -1,26 +1,42 @@
 class Api::V1::Users::SessionsController < Devise::SessionsController
+  include ActionController::Flash
   respond_to :json
+
+  before_action :set_flash_messages
 
   private
 
-  def respond_with(_resource, _opts = {})
+  def respond_with(resource, _opts = {})
     render json: {
-      message: 'You are logged in.',
-      user: current_user
+      status: {
+        code: 200,
+        message: 'User signed in successfully',
+        user: resource
+      }
     }, status: :ok
   end
 
   def respond_to_on_destroy
-    log_out_success && return if current_user
-
-    log_out_failure
+    jwt_payload = JWT.decode(request.headers['Authorization'].split[1],
+                             Rails.application.credentials.fetch(:secret_key_base)).first
+    current_user = User.find(jwt_payload['sub'])
+    if current_user
+      render json: {
+        status: 200,
+        message: 'Signed out successfully'
+      }, status: :ok
+    else
+      render json: { message: 'Hmm, nothing happened.', errors: resource.errors.full_messages }, status: :unauthorized
+    end
   end
 
-  def log_out_success
-    render json: { message: 'You are logged out.' }, status: :ok
+  def set_flash_messages
+    flash[:notice] = find_flash_message(:notice, :signed_in) if is_navigational_format?
+    flash[:alert] = find_flash_message(:alert, :logout_failure) if is_navigational_format?
   end
 
-  def log_out_failure
-    render json: { message: 'Hmm nothing happened.' }, status: :unauthorized
+  def find_flash_message(_key, kind, options = {})
+    message = find_message(kind, options)
+    message if message.present?
   end
 end
