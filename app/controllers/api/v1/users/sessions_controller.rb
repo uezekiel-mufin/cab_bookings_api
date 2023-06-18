@@ -1,26 +1,27 @@
 class Api::V1::Users::SessionsController < Devise::SessionsController
+  include ActionController::Flash
   respond_to :json
+
+  def create
+    email = params[:user][:email]
+    user = User.find_by(email:)
+
+    if user&.valid_password?(params[:user][:password])
+      render json: {
+        message: 'You are logged in.',
+        user:
+      }, status: :ok
+    else
+      render json: {
+        message: 'Invalid email or password.',
+        error: 'User not found or incorrect password.'
+      }, status: :unauthorized
+    end
+  end
 
   private
 
-  def respond_with(_resource, _opts = {})
-    render json: {
-      message: 'You are logged in.',
-      user: current_user
-    }, status: :ok
-  end
-
-  def respond_to_on_destroy
-    log_out_success && return if current_user
-
-    log_out_failure
-  end
-
-  def log_out_success
-    render json: { message: 'You are logged out.' }, status: :ok
-  end
-
-  def log_out_failure
-    render json: { message: 'Hmm nothing happened.' }, status: :unauthorized
+  def sign_in_params
+    params.require(:user).permit(:email, :password)
   end
 end
