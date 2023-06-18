@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       devise_for :users,
                  controllers: {
-                   sessions: 'users/sessions',
+                   sessions: 'api/v1/users/sessions',
                    registrations: 'api/v1/users/registrations'
                  }
       resources :cabs, only: [:index, :create, :show, :destroy]
