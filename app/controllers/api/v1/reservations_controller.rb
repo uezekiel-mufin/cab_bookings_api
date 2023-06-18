@@ -26,7 +26,6 @@ class Api::V1::ReservationsController < ApplicationController
     end
   end
 
-
   private
 
   def set_reservation
