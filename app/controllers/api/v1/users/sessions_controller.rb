@@ -17,7 +17,7 @@ class Api::V1::Users::SessionsController < Devise::SessionsController
     error: 'User not found or incorrect password.'
     }, status: :unauthorized
     end
-    end
+  end
 
   private
 
