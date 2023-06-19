@@ -22,7 +22,6 @@ RSpec.describe ReservationSerializer, type: :serializer do
     expect(serialized_cab).to be_a(Hash)
     expect(serialized_cab['id']).to eq(cab.id)
     expect(serialized_cab['manufacturer']).to eq(cab.manufacturer)
-    # Add assertions for other cab attributes as needed
   end
 
   it 'includes the associated user' do
@@ -30,6 +29,5 @@ RSpec.describe ReservationSerializer, type: :serializer do
     expect(serialized_user).to be_a(Hash)
     expect(serialized_user['id']).to eq(user.id)
     expect(serialized_user['name']).to eq(user.name)
-    # Add assertions for other user attributes as needed
   end
 end
