@@ -1,0 +1,187 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/cabs":
+    post:
+      summary: Creates a cab
+      tags:
+      - Cabs
+      parameters: []
+      responses:
+        '201':
+          description: cab created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                manufacturer:
+                  type: string
+                description:
+                  type: string
+                image_url:
+                  type: string
+                transmission:
+                  type: string
+                model:
+                  type: string
+                rental_price:
+                  type: number
+                seating_capacity:
+                  type: integer
+                body_type:
+                  type: string
+                discount:
+                  type: integer
+                engine_type:
+                  type: string
+                user_id:
+                  type: integer
+              required:
+              - manufacturer
+              - transmission
+              - image_url
+              - model
+              - rental_price
+              - seating_capacity
+              - engine_type
+              - user_id
+  "/api/v1/cabs/{id}":
+    get:
+      summary: Retrieves a cab
+      tags:
+      - Cabs
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: cab found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  manufacturer:
+                    type: string
+                  description:
+                    type: string
+                  image_url:
+                    type: string
+                  transmission:
+                    type: string
+                  model:
+                    type: string
+                  rental_price:
+                    type: number
+                  seating_capacity:
+                    type: integer
+                  body_type:
+                    type: string
+                  discount:
+                    type: integer
+                  engine_type:
+                    type: string
+                  user_id:
+                    type: integer
+                required:
+                - id
+                - manufacturer
+                - transmission
+                - image_url
+                - model
+                - rental_price
+                - seating_capacity
+                - engine_type
+                - user_id
+        '404':
+          description: cab not found
+  "/api/v1/reservations":
+    post:
+      summary: Creates a reservation
+      tags:
+      - Reservations
+      parameters: []
+      responses:
+        '201':
+          description: reservation created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reserve_date:
+                  type: string
+                start_date:
+                  type: string
+                end_date:
+                  type: string
+                cab_id:
+                  type: integer
+                user_id:
+                  type: integer
+              required:
+              - reserve_date
+              - start_date
+              - end_date
+              - cab_id
+              - user_id
+  "/api/v1/reservations/{id}":
+    get:
+      summary: Retrieves a reservation
+      tags:
+      - Reservations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: reservation found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  reserve_date:
+                    type: string
+                  start_date:
+                    type: string
+                  end_date:
+                    type: string
+                  cab_id:
+                    type: integer
+                  user_id:
+                    type: integer
+                required:
+                - id
+                - reserve_date
+                - start_date
+                - end_date
+                - cab_id
+                - user_id
+        '404':
+          description: reservation not found
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
