@@ -83,4 +83,8 @@ RSpec.describe Cab, type: :model do
     subject.rental_price = -1
     expect(subject).to_not be_valid
   end
+
+  it 'Model must have 3 or more characters' do
+    expect(subject.model).to eql('Honda City')
+  end
 end
