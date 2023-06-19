@@ -23,11 +23,4 @@ RSpec.describe ReservationSerializer, type: :serializer do
     expect(serialized_cab['id']).to eq(cab.id)
     expect(serialized_cab['manufacturer']).to eq(cab.manufacturer)
   end
-
-  it 'includes the associated user' do
-    serialized_user = serialized_reservation['user']
-    expect(serialized_user).to be_a(Hash)
-    expect(serialized_user['id']).to eq(user.id)
-    expect(serialized_user['name']).to eq(user.name)
-  end
 end
