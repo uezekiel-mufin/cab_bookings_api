@@ -83,6 +83,4 @@ RSpec.describe Cab, type: :model do
     subject.rental_price = -1
     expect(subject).to_not be_valid
   end
-
-  
 end
