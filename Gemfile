@@ -14,6 +14,8 @@ gem 'devise-jwt'
 
 gem 'factory_bot'
 
+gem 'rswag'
+
 # Use sqlite3 as the database for Active Record
 gem 'pg', '~> 1.5', '>= 1.5.3'
 
