@@ -8,12 +8,12 @@ paths:
     post:
       summary: Creates a cab
       tags:
-      - Cabs
+        - Cabs
       parameters: []
       responses:
-        '201':
+        "201":
           description: cab created
-        '422':
+        "422":
           description: invalid request
       requestBody:
         content:
@@ -44,27 +44,27 @@ paths:
                 user_id:
                   type: integer
               required:
-              - manufacturer
-              - transmission
-              - image_url
-              - model
-              - rental_price
-              - seating_capacity
-              - engine_type
-              - user_id
+                - manufacturer
+                - transmission
+                - image_url
+                - model
+                - rental_price
+                - seating_capacity
+                - engine_type
+                - user_id
   "/api/v1/cabs/{id}":
     get:
       summary: Retrieves a cab
       tags:
-      - Cabs
+        - Cabs
       parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: integer
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
       responses:
-        '200':
+        "200":
           description: cab found
           content:
             application/json:
@@ -96,27 +96,27 @@ paths:
                   user_id:
                     type: integer
                 required:
-                - id
-                - manufacturer
-                - transmission
-                - image_url
-                - model
-                - rental_price
-                - seating_capacity
-                - engine_type
-                - user_id
-        '404':
+                  - id
+                  - manufacturer
+                  - transmission
+                  - image_url
+                  - model
+                  - rental_price
+                  - seating_capacity
+                  - engine_type
+                  - user_id
+        "404":
           description: cab not found
   "/api/v1/reservations":
     post:
       summary: Creates a reservation
       tags:
-      - Reservations
+        - Reservations
       parameters: []
       responses:
-        '201':
+        "201":
           description: reservation created
-        '422':
+        "422":
           description: invalid request
       requestBody:
         content:
@@ -135,24 +135,24 @@ paths:
                 user_id:
                   type: integer
               required:
-              - reserve_date
-              - start_date
-              - end_date
-              - cab_id
-              - user_id
+                - reserve_date
+                - start_date
+                - end_date
+                - cab_id
+                - user_id
   "/api/v1/reservations/{id}":
     get:
       summary: Retrieves a reservation
       tags:
-      - Reservations
+        - Reservations
       parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: integer
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
       responses:
-        '200':
+        "200":
           description: reservation found
           content:
             application/json:
@@ -172,16 +172,16 @@ paths:
                   user_id:
                     type: integer
                 required:
-                - id
-                - reserve_date
-                - start_date
-                - end_date
-                - cab_id
-                - user_id
-        '404':
+                  - id
+                  - reserve_date
+                  - start_date
+                  - end_date
+                  - cab_id
+                  - user_id
+        "404":
           description: reservation not found
 servers:
-- url: https://{defaultHost}
-  variables:
-    defaultHost:
-      default: www.example.com
+  - url: http://localhost:3000/api-docs
+    variables:
+      defaultHost:
+        default: www.example.com
