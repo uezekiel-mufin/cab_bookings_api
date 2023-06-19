@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get '/member-data', to: 'members#show'
-
   namespace :api do
     namespace :v1 do
       devise_for :users,
@@ -10,11 +8,8 @@ Rails.application.routes.draw do
                  }
       resources :cabs, only: [:index, :create, :show, :destroy]
       resources :reservations, only: [:index, :create, :destroy]
-
     end
   end
   # Defines the root path route ("/")
-  # root "articles#index"
-
   root "home#index"
 end

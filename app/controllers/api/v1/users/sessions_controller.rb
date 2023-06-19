@@ -4,18 +4,18 @@ class Api::V1::Users::SessionsController < Devise::SessionsController
 
   def create
     email = params[:user][:email]
-    user = User.find_by(email: email)
+    user = User.find_by(email:)
 
     if user&.valid_password?(params[:user][:password])
-    render json: {
-    message: 'You are logged in.',
-    user: user
-    }, status: :ok
+      render json: {
+        message: 'You are logged in.',
+        user:
+      }, status: :ok
     else
-    render json: {
-    message: 'Invalid email or password.',
-    error: 'User not found or incorrect password.'
-    }, status: :unauthorized
+      render json: {
+        message: 'Invalid email or password.',
+        error: 'User not found or incorrect password.'
+      }, status: :unauthorized
     end
   end
 
@@ -24,5 +24,4 @@ class Api::V1::Users::SessionsController < Devise::SessionsController
   def sign_in_params
     params.require(:user).permit(:email, :password)
   end
-
 end
