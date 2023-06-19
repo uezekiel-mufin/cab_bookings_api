@@ -87,4 +87,8 @@ RSpec.describe Cab, type: :model do
   it 'Model must have 3 or more characters' do
     expect(subject.model).to eql('Honda City')
   end
+
+  it 'Manufacturer must have 3 or more characters' do
+    expect(subject.manufacturer).to eql('Honda')
+  end
 end
