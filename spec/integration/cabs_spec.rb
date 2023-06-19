@@ -80,8 +80,6 @@ describe 'Cabs API' do
         type: :object,
         properties: {
           reserve_date: { type: :string },
-          start_date: { type: :string },
-          end_date: { type: :string },
           cab_id: { type: :integer },
           user_id: { type: :integer }
         },
@@ -90,7 +88,7 @@ describe 'Cabs API' do
 
       response '201', 'reservation created' do
         let(:reservation) do
-          { reserve_date: '2023-06-18', start_date: '2023-06-19', end_date: '2023-06-21', cab_id: 1, user_id: 1 }
+          { reserve_date: '2023-06-18', cab_id: 1, user_id: 1 }
         end
         run_test!
       end
@@ -113,15 +111,13 @@ describe 'Cabs API' do
                properties: {
                  id: { type: :integer },
                  reserve_date: { type: :string },
-                 start_date: { type: :string },
-                 end_date: { type: :string },
                  cab_id: { type: :integer },
                  user_id: { type: :integer }
                },
                required: %w[id reserve_date start_date end_date cab_id user_id]
 
         let(:id) do
-          Reservation.create(reserve_date: '2023-06-18', start_date: '2023-06-19', end_date: '2023-06-21', cab_id: 1,
+          Reservation.create(reserve_date: '2023-06-18', cab_id: 1,
                              user_id: 1).id
         end
         run_test!
