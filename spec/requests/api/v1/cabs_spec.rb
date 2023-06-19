@@ -32,7 +32,7 @@ RSpec.describe Api::V1::CabsController, type: :controller do
         expect(response.body).to eq(Cab.last.to_json)
       end
     end
-end
+  end
 
   describe 'GET #show' do
     context 'with a valid cab ID' do
