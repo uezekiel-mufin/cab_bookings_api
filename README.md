@@ -36,6 +36,8 @@
 
 - Click this [link](https://github.com/Ezzywealth/cab_bookings_frontend) to access the front end app that was built using react.
 
+- Click this [link](https://github.com/Ezzywealth/cab_bookings_frontend/pull/21) to access the front end app pull request.
+
 ## 🛠 Built With <a name="built-with"></a>
 
 - Ruby on Rails
