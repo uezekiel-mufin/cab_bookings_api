@@ -1,10 +1,8 @@
 <a name="readme-top"></a>
 
-
 <div align="center" font-size="30px">
   <h3><b>Cab Booky</b></h3>
 </div>
-
 
 # 📗 Table of Contents
 
@@ -28,14 +26,13 @@
 - [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
-
 # 📖 Cab Booky
 
 <a name="about-project"></a>
 
 **Cab Booky** is an application which allows users to create,delete and reserve cab. A user also can reserve available cab.
 
-##  Front End app <a name="live-demo"></a>
+## Front End app <a name="live-demo"></a>
 
 - Click this [link](https://github.com/Ezzywealth/cab_bookings_frontend) to access the front end app that was built using react.
 
@@ -69,20 +66,17 @@
   </ul>
 </details>
 
-
 ### Key Features <a name="key-features"></a>
+
 - **list of available cabs on home page**
 - **Ability to create a cab**
-- **Ability to list all the reservations that a user has**
+- **Ability to create and list all the reservations that a user has**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 - [Clike Here!!!](https://carbooky.vercel.app/)
-
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -106,8 +100,18 @@ Clone this repository to your desired folder:
 Install this project with:
 
 ```sh
-  cd hello_rails_react
-  gem install
+  cd cab_bookings_api
+  bundle install
+```
+
+### Create database
+
+To run tests, run the following command:
+
+```sh
+  rails db:create
+  rails db:migrate
+  rails db:seed
 ```
 
 ### Usage
@@ -123,16 +127,15 @@ To run the project, execute the following command:
 To run tests, run the following command:
 
 ```sh
-  rails db:create
-  rails db:migrate
-  rails db:seed
+  rspec ./spec/models
+  rspec ./spec/model
+  rspec ./spec/controllers
+  rspec ./spec/requests
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
 ## 👥 Authors <a name="authors"></a>
-
 
 👤 **Ezekiel Udiomuno**
 
@@ -146,7 +149,6 @@ To run tests, run the following command:
 - Twitter: [@outkarm](https://twitter.com/outkarm)
 - LinkedIn: [John Kpordje](https://www.linkedin.com/in/john-kpordje-866749241/)
 
-
 👤 **Abdimulhin Adan**
 
 - GitHub: [@AbdimulhinYussuf3675](https://github.com/AbdimulhinYussuf3675)
@@ -155,16 +157,14 @@ To run tests, run the following command:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
 ## 🔭 Future Features <a name="future-features"></a>
 
--  **Add payment feature where users can pay for their resevations and bookings**
+- **Add payment feature where users can pay for their resevations and bookings**
 - **Add chatting feature among users**
 - **Add tracking feature where users can see where their cab is located**
-
+- **Add user profile pagr**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 ## 🤝 Contributing <a name="contributing"></a>
 
@@ -174,13 +174,11 @@ Feel free to check the [issues page](https://github.com/Ezzywealth/cab_bookings_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
 ## ⭐️ Show your support <a name="support"></a>
 
 If you like this project kindly give it a star ⭐️
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
@@ -188,11 +186,9 @@ I would like to thank...
 
 - [Microverse](https://www.microverse.org/) for learning the oppotunity
 
-- [Murat Korkmaz](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign) for the design. 
-
+- [Murat Korkmaz](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign) for the design.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 ## 📝 License <a name="license"></a>
 
