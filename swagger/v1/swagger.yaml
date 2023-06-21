@@ -5,6 +5,59 @@
     "version": "v1"
   },
   "paths": {
+    "/api/v1/users": {
+      "post": {
+        "summary": "Creates a user",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "201": {
+            "description": "user created"
+          },
+          "422": {
+            "description": "invalid request"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "email": {
+                        "type": "string"
+                      },
+                      "password": {
+                        "type": "string"
+                      },
+                      "password_confirmation": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "email",
+                      "password",
+                      "password_confirmation"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/cabs": {
       "post": {
         "summary": "Creates a cab",
@@ -183,6 +236,9 @@
               "schema": {
                 "type": "object",
                 "properties": {
+                  "city": {
+                    "type": "string"
+                  },
                   "reserve_date": {
                     "type": "string"
                   },
@@ -194,9 +250,8 @@
                   }
                 },
                 "required": [
+                  "city",
                   "reserve_date",
-                  "start_date",
-                  "end_date",
                   "cab_id",
                   "user_id"
                 ]
@@ -206,16 +261,16 @@
         }
       }
     },
-    "/api/v1/reservations/{id}": {
+    "/api/v1/reservations/": {
       "get": {
-        "summary": "Retrieves a reservation",
+        "summary": "Retrieves all reservations for a user",
         "tags": [
           "Reservations"
         ],
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
+            "name": "user",
+            "in": "query",
             "required": true,
             "schema": {
               "type": "integer"
@@ -224,39 +279,44 @@
         ],
         "responses": {
           "200": {
-            "description": "reservation found",
+            "description": "reservations found",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "integer"
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "city": {
+                        "type": "string"
+                      },
+                      "reserve_date": {
+                        "type": "string"
+                      },
+                      "cab_id": {
+                        "type": "integer"
+                      },
+                      "user_id": {
+                        "type": "integer"
+                      }
                     },
-                    "reserve_date": {
-                      "type": "string"
-                    },
-                    "cab_id": {
-                      "type": "integer"
-                    },
-                    "user_id": {
-                      "type": "integer"
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "reserve_date",
-                    "start_date",
-                    "end_date",
-                    "cab_id",
-                    "user_id"
-                  ]
+                    "required": [
+                      "id",
+                      "city",
+                      "reserve_date",
+                      "cab_id",
+                      "user_id"
+                    ]
+                  }
                 }
               }
             }
           },
           "404": {
-            "description": "reservation not found"
+            "description": "user not found"
           }
         }
       }
@@ -264,7 +324,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:3000/api-docs",
+      "url": "http://localhost:3000",
       "variables": {
         "defaultHost": {
           "default": "www.example.com"
