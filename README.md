@@ -7,6 +7,7 @@
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
+- [Kanban Board](#kanban-board)
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
