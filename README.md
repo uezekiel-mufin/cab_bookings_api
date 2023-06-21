@@ -32,11 +32,23 @@
 
 **Cab Booky** is an application which allows users to create,delete and reserve cab. A user also can reserve available cab.
 
-## Front End app <a name="live-demo"></a>
+## Front End app <a name="front-end-repo"></a>
 
 - Click this [link](https://github.com/Ezzywealth/cab_bookings_frontend) to access the front end app that was built using react.
 
 - Click this [link](https://github.com/Ezzywealth/cab_bookings_frontend/pull/21) to access the front end app pull request.
+
+### Kanban Board
+
+- Click this [link](https://github.com/users/Ezzywealth/projects/9) to access the Kanban Board.
+
+- Click this [link](https://user-images.githubusercontent.com/108669691/244860298-7ac472f8-bc55-42ed-927b-2ab7decf4ca0.png) to view the initial screenshot of the project Kanban Board.
+
+### Team Members
+
+At the culmination of this project, only three team members remained, and detailed information about them can be found in the [👥 Authors](#authors)
+
+- Click this [link](https://github.com/Ezzywealth/cab_bookings_frontend/issues/1) to view the description of each team members role in the project.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -164,7 +176,7 @@ To run tests, run the following command:
 - **Add payment feature where users can pay for their resevations and bookings**
 - **Add chatting feature among users**
 - **Add tracking feature where users can see where their cab is located**
-- **Add user profile pagr**
+- **Add user profile page**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
